@@ -521,11 +521,20 @@
     .signal-belt-track {
       display: flex;
       width: max-content;
-      animation: marqueeHorizontal 30s linear infinite;
+      animation: marqueeHorizontal 25s linear infinite;
     }
 
     .signal-belt-track:hover {
       animation-play-state: paused;
+    }
+
+    @keyframes marqueeHorizontal {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     .signal-belt-group {
