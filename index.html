@@ -3188,7 +3188,7 @@
         <div class="section-head" style="text-align: center; margin-bottom: 3rem;">
           <div class="eyebrow">Expertise</div>
           <h2 class="section-title">Industries <em>Served</em></h2>
-          <p class="section-copy" style="max-width: 600px; margin: 0.5rem auto 0 auto;">Over 11+ years of consulting, delivering domain-specific analytics solutions tailored to sector challenges.</p>
+          <p class="section-copy" style="max-width: 920px; margin: 0.5rem auto 0 auto;">Over 11+ years of consulting, delivering domain-specific analytics solutions tailored to sector challenges.</p>
         </div>
         
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;" class="industries-grid-v4">
@@ -4432,7 +4432,7 @@
       </div>
     </section>
 
-    <!-- Contact Page Section -->
+    <!-- Resume Section -->
     <section class="section" id="resume">
       <div class="shell">
         <div class="section-head">
@@ -4441,53 +4441,67 @@
         </div>
 
         <div class="resume-container">
-          <div class="resume-tabs-row">
-            <button class="resume-tab-btn active" data-tab="visual">Visual Experience Summary</button>
-            <button class="resume-tab-btn" data-tab="ats">ATS Friendly Text</button>
+          <div class="resume-tabs-row" style="display: flex; gap: 0.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; margin-bottom: 1.5rem;">
+            <button class="resume-tab-btn active" data-tab="visual" style="font-weight: 700; padding: 0.5rem 1.25rem; border-radius: 6px; cursor: pointer;">Visual Resume</button>
+            <button class="resume-tab-btn" data-tab="ats" style="font-weight: 700; padding: 0.5rem 1.25rem; border-radius: 6px; cursor: pointer;">ATS Resume</button>
           </div>
 
+          <!-- Visual Resume Compact Card -->
           <div class="resume-panel-content active" id="resume-visual">
-            <div style="padding: 1rem; color: var(--text);">
-              <h3 style="font-size: 2.2rem; margin-bottom: 0.5rem; font-family: 'Outfit';">Ankur Varshney</h3>
-              <p style="font-weight: 600; color: var(--primary); font-size: 1.1rem; margin-bottom: 1.5rem;">Senior Tableau BI Developer / Analytics Consultant</p>
-              
-              <div class="project-modal-grid">
+            <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 1.75rem;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
                 <div>
-                  <h4 class="project-modal-section-title">Professional Summary</h4>
-                  <p class="project-modal-text" style="font-size: 0.9rem;">Senior Analytics Developer with 11+ years of experience delivering BI solutions, scalable SQL queries, AWS cloud data connections, and AI extensions across global banking and insurance platforms.</p>
+                  <h3 style="font-size: 1.6rem; margin: 0 0 0.25rem 0; font-family: 'Outfit', sans-serif; font-weight: 700; color: var(--text);">Ankur Varshney</h3>
+                  <p style="font-weight: 600; color: var(--primary); font-size: 0.95rem; margin: 0;">Senior BI &amp; Data Analytics Consultant (11+ Years)</p>
                 </div>
-                <div>
-                  <h4 class="project-modal-section-title">Core Skills</h4>
-                  <p class="project-modal-text" style="font-size: 0.9rem;">Tableau Desktop/Server/Prep, Power BI, TabPy, Oracle SQL, PostgreSQL, AWS S3, Athena, Databricks, PySpark, Python, LangChain.</p>
-                </div>
-              </div>
-              
-              <h4 class="project-modal-section-title">Professional Career</h4>
-              <div style="margin-bottom: 1rem; border-left: 2px solid var(--primary); padding-left: 1rem; margin-top: 1rem;">
-                <p style="font-size: 0.9rem; font-weight: 700;">Sun Life Financial — Senior BI Developer / Data Analyst</p>
-                <p style="font-size: 0.78rem; color: var(--muted); margin-bottom: 0.5rem;">2023 - Present | Gurugram, India</p>
-                <p class="project-modal-text">Lead Tableau Cloud administration and developed platform adoption suites, driving a 30% increase in active user engagement.</p>
+                <span class="status-badge published" style="font-size: 0.75rem; padding: 0.35rem 0.75rem;">Available for Global BI / Analytics Roles</span>
               </div>
 
-              <div style="margin-bottom: 1rem; border-left: 2px solid var(--primary); padding-left: 1rem;">
-                <p style="font-size: 0.9rem; font-weight: 700;">HCL Technologies — Tableau &amp; Data Viz Lead</p>
-                <p style="font-size: 0.78rem; color: var(--muted); margin-bottom: 0.5rem;">2021 - 2023 | Pune, India</p>
-                <p class="project-modal-text">Managed a team of developers delivering spend compliance dashboards live connected to SAP HANA and prepped via Databricks/PySpark.</p>
-              </div>
+              <!-- Quick Bullet Overview Grid -->
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem;" class="resume-overview-grid">
+                <div style="background: var(--bg); border: 1px solid var(--border); padding: 1rem; border-radius: 6px;">
+                  <h4 style="font-size: 0.85rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.6rem 0;">• Experience Timeline</h4>
+                  <ul style="font-size: 0.83rem; color: var(--text); padding-left: 1.1rem; margin: 0; line-height: 1.6;">
+                    <li><strong>Sun Life Financial</strong> — Sr. BI Developer / Data Analyst (2023 - Present)</li>
+                    <li><strong>HCL Technologies</strong> — Tableau &amp; Data Viz Lead (2021 - 2023)</li>
+                    <li><strong>TCS</strong> — IT Analyst / Sr. BI Developer (2015 - 2021)</li>
+                  </ul>
+                </div>
 
-              <div style="margin-bottom: 1rem; border-left: 2px solid var(--primary); padding-left: 1rem;">
-                <p style="font-size: 0.9rem; font-weight: 700;">Tata Consultancy Services — IT Analyst (Senior BI Developer)</p>
-                <p style="font-size: 0.78rem; color: var(--muted); margin-bottom: 0.5rem;">2015 - 2021 | Mumbai &amp; Middle East</p>
-                <p class="project-modal-text">Led a team of 5 developers delivering SQL and data viz solutions across GE Power supply chain and First Abu Dhabi Bank compensation databases.</p>
+                <div style="background: var(--bg); border: 1px solid var(--border); padding: 1rem; border-radius: 6px;">
+                  <h4 style="font-size: 0.85rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.6rem 0;">• Core Tech &amp; Skills</h4>
+                  <ul style="font-size: 0.83rem; color: var(--text); padding-left: 1.1rem; margin: 0; line-height: 1.6;">
+                    <li><strong>BI &amp; Viz:</strong> Tableau Server/Prep, Power BI, TabPy, Extensions API</li>
+                    <li><strong>Cloud &amp; Data:</strong> AWS Athena, S3, Glue, Databricks, PySpark, Oracle SQL</li>
+                    <li><strong>AI &amp; Automation:</strong> LangChain, Bedrock, Claude, Python, RAG Agents</li>
+                  </ul>
+                </div>
+
+                <div style="background: var(--bg); border: 1px solid var(--border); padding: 1rem; border-radius: 6px;">
+                  <h4 style="font-size: 0.85rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.6rem 0;">• Featured Projects</h4>
+                  <ul style="font-size: 0.83rem; color: var(--text); padding-left: 1.1rem; margin: 0; line-height: 1.6;">
+                    <li><strong>Agentic Conversational BI:</strong> AWS Bedrock + TabPy LLM Extension</li>
+                    <li><strong>Workbook Sentinel:</strong> Zero Data-Leakage XML Metadata Security Auditor</li>
+                    <li><strong>Tableau Calendar Extension:</strong> Full-Year Heatmap Date Picker</li>
+                  </ul>
+                </div>
+
+                <div style="background: var(--bg); border: 1px solid var(--border); padding: 1rem; border-radius: 6px;">
+                  <h4 style="font-size: 0.85rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 0.6rem 0;">• Certifications &amp; Awards</h4>
+                  <ul style="font-size: 0.83rem; color: var(--text); padding-left: 1.1rem; margin: 0; line-height: 1.6;">
+                    <li><strong>AWS Cloud Quest Winner</strong> (2025 Skill Builder Challenge)</li>
+                    <li><strong>Accredited Credentials:</strong> Tableau Desktop Specialist &amp; Data Scientist</li>
+                    <li><strong>Awards:</strong> Sun Life Quarterly Innovation &amp; TCS Agile Special Achievement</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="resume-panel-content" id="resume-ats">
-            <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
-              <button class="btn secondary" id="copyAtsBtn" style="padding: 0.4rem 0.8rem; font-size: 0.7rem;">Copy Resume Text</button>
-            </div>
-            <pre class="resume-ats-box" id="atsResumeText">ANKUR VARSHNEY
+          <!-- ATS Resume Text Panel -->
+          <div class="resume-panel-content" id="resume-ats" style="display: none;">
+            <div style="max-height: 320px; overflow-y: auto; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1rem;">
+              <pre class="resume-ats-box" id="atsResumeText" style="margin: 0; font-family: monospace; font-size: 0.8rem; white-space: pre-wrap; word-break: break-word;">ANKUR VARSHNEY
 Senior Tableau BI Developer | Data Analytics | AI-Powered BI Solutions
 Phone: +91 8452893918 | Email: vyankur@gmail.com
 Tableau Public: public.tableau.com/profile/ankur.varshney
@@ -4572,7 +4586,7 @@ ACHIEVEMENTS & CERTIFICATIONS
 * 2025 AWS Cloud Quest Winner for hands-on problem solving using AWS Skill Builder Labs
 * Sun Life: Quarterly Award for dashboard innovation and reporting automation
 * TCS: On the Spot Award, Special Achievement Award for Agile Initiative, and Best Performer of the Month Award
-* Certified Tableau Desktop Specialist and Tableau Data Scientist (Accredited Credentials)
+* Certified Tableau Specialist and Tableau Data Scientist (Accredited Credentials)
 
 ================================================================================
 EDUCATION
@@ -4580,11 +4594,27 @@ EDUCATION
 * BTech. (Electronics & Communications)
   Krishna Institute of Engineering and Technology, Ghaziabad
   UPTU, Noida | 2015</pre>
+            </div>
           </div>
 
-          <div class="resume-btn-row">
-            <a href="./assets/Ankur_Varshney_Resume.pdf" download class="btn primary">Download PDF Version</a>
-            <a href="https://linkedin.com/in/vyankur" target="_blank" rel="noopener" class="btn secondary">View LinkedIn Profile</a>
+          <!-- Action Buttons Row -->
+          <div class="resume-btn-row" style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; justify-content: flex-start;">
+            <a href="./assets/Ankur_Varshney_Resume.pdf" download class="btn primary" style="padding: 0.55rem 1.1rem; font-size: 0.83rem; display: inline-flex; align-items: center; gap: 0.4rem;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              Download Resume (PDF)
+            </a>
+            <button class="btn secondary" id="copyAtsBtn" style="padding: 0.55rem 1.1rem; font-size: 0.83rem; display: inline-flex; align-items: center; gap: 0.4rem;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy ATS Resume
+            </button>
+            <a id="downloadAtsTxtBtn" class="btn secondary" style="padding: 0.55rem 1.1rem; font-size: 0.83rem; display: inline-flex; align-items: center; gap: 0.4rem;" href="#">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Download ATS Resume (.txt)
+            </a>
+            <button class="btn secondary" id="viewResumeModalBtn" style="padding: 0.55rem 1.1rem; font-size: 0.83rem; display: inline-flex; align-items: center; gap: 0.4rem;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              View Resume 👁️
+            </button>
           </div>
         </div>
       </div>
@@ -4790,6 +4820,87 @@ EDUCATION
         <div class="modal-actions-row" style="margin-top: 2rem; border-top: 1px solid var(--border); padding-top: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
           <button class="btn secondary" id="articleBackBtn" style="padding: 0.5rem 1rem; font-size: 0.8rem;">← Back to Knowledge Hub</button>
           <span style="font-size: 0.7rem; color: var(--muted);">vyankur.github.io</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Resume Viewer Modal Overlay -->
+  <div class="project-modal" id="resumeViewerModal">
+    <div class="project-modal-content" style="max-width: 900px; max-height: 90vh; overflow-y: auto;">
+      <button class="project-modal-close" id="resumeViewerModalCloseBtn">&times;</button>
+      <div class="project-modal-body" style="padding: 1.5rem 1rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+          <div>
+            <h3 class="project-modal-title" style="margin: 0; font-size: 1.6rem;">Ankur Varshney — Full Resume Viewer</h3>
+            <p style="margin: 0.25rem 0 0 0; color: var(--muted); font-size: 0.88rem;">Senior BI &amp; Data Analytics Consultant (11+ Years)</p>
+          </div>
+          <a href="./assets/Ankur_Varshney_Resume.pdf" download class="btn primary" style="font-size: 0.8rem; padding: 0.4rem 0.9rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            Download PDF
+          </a>
+        </div>
+
+        <div style="font-size: 0.9rem; line-height: 1.6; color: var(--text);">
+          <div style="background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem; margin-bottom: 1.5rem;">
+            <h4 class="project-modal-section-title" style="margin-top: 0; color: var(--primary);">Professional Summary</h4>
+            <p style="margin: 0; font-size: 0.88rem;">11+ years of experience delivering enterprise BI and data analytics solutions across Insurance, Banking, Aviation, Manufacturing, and Energy sectors. Specialist in Tableau dashboard architecture, performance recording, SQL query optimization, row-level security (RLS), and AI-driven conversational BI extensions (Amazon Bedrock / TabPy / LangChain).</p>
+          </div>
+
+          <h4 class="project-modal-section-title" style="color: var(--primary);">Detailed Experience Timeline</h4>
+          
+          <div style="margin-bottom: 1.25rem; border-left: 3px solid var(--primary); padding-left: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+              <strong style="font-size: 1rem;">Sun Life Financial — Senior BI Developer / Data Analyst</strong>
+              <span style="font-size: 0.8rem; color: var(--muted);">Apr 2023 – Present | Gurugram, India</span>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--primary); margin: 0.2rem 0 0.5rem 0; font-weight: 600;">Domain: Insurance Analytics | High Net Worth (HNW), Attrition, Platform Adoption</p>
+            <ul style="padding-left: 1.1rem; margin: 0; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.35rem;">
+              <li>Managed Tableau Server &amp; Cloud scheduling, row-level security (RLS), and deployment automation across UAT and Production.</li>
+              <li>Built custom insurance platform adoption suite used by VPs and POs, driving a 30% increase in active user engagement.</li>
+              <li>Engineered AI dashboard extensions using AWS Bedrock (Claude) and TabPy to enable natural language queries over dashboards.</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom: 1.25rem; border-left: 3px solid var(--primary); padding-left: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+              <strong style="font-size: 1rem;">HCL Technologies — Tableau &amp; Data Viz Lead</strong>
+              <span style="font-size: 0.8rem; color: var(--muted);">May 2021 – Apr 2023 | Pune, India</span>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--primary); margin: 0.2rem 0 0.5rem 0; font-weight: 600;">Domain: Banking &amp; Financial Services (Deutsche Bank)</p>
+            <ul style="padding-left: 1.1rem; margin: 0; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.35rem;">
+              <li>Led a team of developers delivering a 5-year financial planning &amp; spend compliance suite live-connected to SAP HANA and Databricks.</li>
+              <li>Built ESG compliance monitors tracking investment portfolio sustainability metrics and governance scores.</li>
+            </ul>
+          </div>
+
+          <div style="margin-bottom: 1.25rem; border-left: 3px solid var(--primary); padding-left: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+              <strong style="font-size: 1rem;">Tata Consultancy Services — IT Analyst (Senior BI Developer)</strong>
+              <span style="font-size: 0.8rem; color: var(--muted);">Oct 2015 – Apr 2021 | Mumbai &amp; Middle East</span>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--primary); margin: 0.2rem 0 0.5rem 0; font-weight: 600;">Domains: Banking (First Abu Dhabi Bank), Power (GE Power), Aviation (SIA), Manufacturing</p>
+            <ul style="padding-left: 1.1rem; margin: 0; font-size: 0.85rem; display: flex; flex-direction: column; gap: 0.35rem;">
+              <li>Led 5 BI developers delivering HR risk analytics, dynamic RLS entitlement joins, and Oracle stored procedures.</li>
+              <li>Built defect tracking and lead time dashboards for GE Power during legacy-to-AWS cloud data migrations, saving $50K USD and cutting reporting latency by 90%.</li>
+            </ul>
+          </div>
+
+          <h4 class="project-modal-section-title" style="color: var(--primary); margin-top: 1.5rem;">Technical Skillset Summary</h4>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; font-size: 0.83rem;">
+            <div style="background: var(--bg); padding: 0.85rem; border-radius: 6px; border: 1px solid var(--border);">
+              <strong>BI &amp; Visualization:</strong> Tableau Server/Cloud/Prep, Power BI, TabPy, Extensions API SDK
+            </div>
+            <div style="background: var(--bg); padding: 0.85rem; border-radius: 6px; border: 1px solid var(--border);">
+              <strong>Databases &amp; SQL:</strong> Oracle SQL, PL/SQL, PostgreSQL, SAP HANA, Greenplum, Aurora DB
+            </div>
+            <div style="background: var(--bg); padding: 0.85rem; border-radius: 6px; border: 1px solid var(--border);">
+              <strong>Cloud &amp; Data:</strong> AWS S3, Athena, Databricks, PySpark, AWS Glue, Parquet
+            </div>
+            <div style="background: var(--bg); padding: 0.85rem; border-radius: 6px; border: 1px solid var(--border);">
+              <strong>AI &amp; Automation:</strong> LangChain, Amazon Bedrock, Python, RAG Agents, Git/GitHub
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -5080,31 +5191,81 @@ EDUCATION
       });
     });
 
-    // Resume Section Tabs
-    const resumeTabBtns = document.querySelectorAll('.resume-tab-btn');
-    const resumePanels = document.querySelectorAll('.resume-panel-content');
-
-    resumeTabBtns.forEach(btn => {
+    // Resume Section Tabs & Action Handlers
+    document.querySelectorAll('.resume-tab-btn').forEach(btn => {
       btn.addEventListener('click', () => {
-        resumeTabBtns.forEach(b => b.classList.remove('active'));
-        resumePanels.forEach(p => p.classList.remove('active'));
-        btn.classList.add('active');
         const tab = btn.getAttribute('data-tab');
-        document.getElementById(`resume-${tab}`).classList.add('active');
+        document.querySelectorAll('.resume-tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.resume-panel-content').forEach(p => {
+          p.classList.remove('active');
+          p.style.display = 'none';
+        });
+        btn.classList.add('active');
+        const activePanel = document.getElementById(`resume-${tab}`);
+        if (activePanel) {
+          activePanel.classList.add('active');
+          activePanel.style.display = 'block';
+        }
       });
     });
 
     // ATS copy to clipboard logic
     const copyAtsBtn = document.getElementById('copyAtsBtn');
     const atsResumeText = document.getElementById('atsResumeText');
-    copyAtsBtn.addEventListener('click', () => {
-      navigator.clipboard.writeText(atsResumeText.textContent).then(() => {
-        copyAtsBtn.textContent = 'Copied!';
-        setTimeout(() => {
-          copyAtsBtn.textContent = 'Copy Resume Text';
-        }, 2000);
+    if (copyAtsBtn && atsResumeText) {
+      copyAtsBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(atsResumeText.textContent).then(() => {
+          copyAtsBtn.textContent = 'Copied!';
+          setTimeout(() => {
+            copyAtsBtn.textContent = 'Copy ATS Resume';
+          }, 2000);
+        });
       });
-    });
+    }
+
+    // ATS download as .txt logic
+    const downloadAtsTxtBtn = document.getElementById('downloadAtsTxtBtn');
+    if (downloadAtsTxtBtn && atsResumeText) {
+      downloadAtsTxtBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const text = atsResumeText.textContent;
+        const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Ankur_Varshney_Resume_ATS.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      });
+    }
+
+    // Fullscreen Resume Modal Viewer Handler
+    const viewResumeModalBtn = document.getElementById('viewResumeModalBtn');
+    const resumeViewerModal = document.getElementById('resumeViewerModal');
+    const resumeViewerModalCloseBtn = document.getElementById('resumeViewerModalCloseBtn');
+
+    if (viewResumeModalBtn && resumeViewerModal) {
+      viewResumeModalBtn.addEventListener('click', () => {
+        resumeViewerModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+    if (resumeViewerModalCloseBtn && resumeViewerModal) {
+      resumeViewerModalCloseBtn.addEventListener('click', () => {
+        resumeViewerModal.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+    if (resumeViewerModal) {
+      resumeViewerModal.addEventListener('click', (e) => {
+        if (e.target === resumeViewerModal) {
+          resumeViewerModal.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
 
     // Detailed Project Case Studies Data (Storyteller Edition)
     const projectCaseStudies = {
