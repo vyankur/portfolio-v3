@@ -378,7 +378,7 @@ RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
 
 You can customize it.
 
-Example — Last 3 rows:
+Example - Last 3 rows:
 
 ```sql
 ROWS BETWEEN 2 PRECEDING AND CURRENT ROW
@@ -407,7 +407,7 @@ Best practices:
 
 ✅ Filter unnecessary rows before applying window functions
 
-✅ Avoid repeated window calculations—use a CTE when the same window expression is reused.
+✅ Avoid repeated window calculations - use a CTE when the same window expression is reused.
 
 ✅ Partition only when necessary; excessive partitions can increase processing overhead.
 
