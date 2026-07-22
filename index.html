@@ -480,7 +480,7 @@
     }
 
     .stat-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-3px);
       border-color: var(--primary);
     }
 
@@ -562,9 +562,9 @@
     }
 
     .impact-card:hover {
-      transform: translateY(-4px);
+      transform: translateY(-2px);
       border-color: var(--primary);
-      box-shadow: 0 15px 35px var(--shadow);
+      box-shadow: 0 12px 28px var(--shadow);
     }
 
     .impact-icon {
@@ -775,8 +775,8 @@
 
     .timeline-project-item:hover {
       border-color: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.1);
+      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(var(--primary-rgb), 0.08);
     }
 
     .timeline-project-name {
@@ -855,8 +855,9 @@
     }
 
     .project-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-3px);
       border-color: var(--primary);
+      box-shadow: 0 12px 28px var(--shadow);
     }
 
     .project-card-header {
@@ -1234,7 +1235,7 @@
     }
 
     .cert-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
 
     .cert-badge {
@@ -1369,8 +1370,8 @@
     }
 
     .knowledge-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px var(--shadow);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px var(--shadow);
       border-color: var(--primary);
     }
 
@@ -1726,6 +1727,13 @@
 
     .project-card:hover .project-badge {
       border-color: var(--primary);
+    }
+
+    .project-badge.outcome {
+      background: var(--primary-light);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      color: var(--primary);
+      font-weight: 700;
     }
 
     .tableau-loader {
@@ -2796,8 +2804,8 @@
     
     /* KPI Card hover effect */
     .kpi-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 15px -3px var(--shadow) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 12px -3px var(--shadow) !important;
       border-color: var(--primary) !important;
     }
     
@@ -3172,7 +3180,7 @@
         </div>
 
         <!-- 9 Projects Grid -->
-        <div class="projects-grid">
+                <div class="projects-grid">
           <!-- Project 1 -->
           <div class="project-card" data-category="tableau ai python" data-project-id="ai-bi">
             <div class="project-card-header">
@@ -3182,9 +3190,7 @@
             <div class="project-card-body">
               <h3 class="project-card-title">Agentic Conversational BI Extension</h3>
               <div class="project-card-badges">
-                <span class="project-badge">🤖 AI-enabled Analytics</span>
-                <span class="project-badge">📊 Decision Support</span>
-                <span class="project-badge">⚡ Automation</span>
+                <span class="project-badge outcome">⚡ 95% manual query wait reduction</span>
               </div>
               <p class="project-card-desc">Tableau dashboard extension utilizing AWS Bedrock (Claude) and custom SageMaker embedding endpoints to run conversational data analytics.</p>
               <div class="project-card-techs">
@@ -3208,8 +3214,7 @@
             <div class="project-card-body">
               <h3 class="project-card-title">Tableau Calendar Extension</h3>
               <div class="project-card-badges">
-                <span class="project-badge">⚡ Automation</span>
-                <span class="project-badge">📊 Decision Support</span>
+                <span class="project-badge outcome">⚡ Intuitive circular date picker filtering</span>
               </div>
               <p class="project-card-desc">Native full-year circular heatmap date picker built with React, TypeScript, and Vite on the Extensions API to drive interactive, two-way filters.</p>
               <div class="project-card-techs">
@@ -3234,9 +3239,7 @@
             <div class="project-card-body">
               <h3 class="project-card-title">AWS Athena &amp; S3 Reporting Pipeline</h3>
               <div class="project-card-badges">
-                <span class="project-badge">☁️ AWS Analytics</span>
-                <span class="project-badge">👥 Enterprise Scale</span>
-                <span class="project-badge">🚀 Performance Optimization</span>
+                <span class="project-badge outcome">⚡ Sub-3s load time &amp; saved $50K</span>
               </div>
               <p class="project-card-desc">Engineered high-performance queries and structures connecting Tableau live to AWS S3 data lakes using Athena as the engine.</p>
               <div class="project-card-techs">
@@ -3260,9 +3263,7 @@
             <div class="project-card-body">
               <h3 class="project-card-title">Tableau Server Repository Analytics</h3>
               <div class="project-card-badges">
-                <span class="project-badge">🔐 Enterprise Governance</span>
-                <span class="project-badge">👥 Enterprise Scale</span>
-                <span class="project-badge">⚡ Automation</span>
+                <span class="project-badge outcome">⚡ Audited workbook usage &amp; security</span>
               </div>
               <p class="project-card-desc">Direct query analytics dashboard of Tableau Server PostgreSQL repository tracking workbook usage and user security logs.</p>
               <div class="project-card-techs">
@@ -3286,9 +3287,7 @@
             <div class="project-card-body">
               <h3 class="project-card-title">Automated Python Reporting Framework</h3>
               <div class="project-card-badges">
-                <span class="project-badge">⚡ Automation</span>
-                <span class="project-badge">🔐 Enterprise Governance</span>
-                <span class="project-badge">🚀 Performance Optimization</span>
+                <span class="project-badge outcome">⚡ Automated deployments &amp; extract cleanup</span>
               </div>
               <p class="project-card-desc">Custom CLI scripts to automate workbook deployments, schedule updates, and clean Tableau extracts using Python TSC APIs.</p>
               <div class="project-card-techs">
@@ -3312,9 +3311,7 @@
             <div class="project-card-body">
               <h3 class="project-card-title">Secure HR Analytics (FAB Bank)</h3>
               <div class="project-card-badges">
-                <span class="project-badge">🔐 Enterprise Governance</span>
-                <span class="project-badge">📊 Decision Support</span>
-                <span class="project-badge">👥 Enterprise Scale</span>
+                <span class="project-badge outcome">⚡ Entitlement-based dynamic RLS</span>
               </div>
               <p class="project-card-desc">Interactive HR metrics dashboard for FAB featuring entitlement-based row level security (RLS) policies mapping department managers.</p>
               <div class="project-card-techs">
@@ -3338,9 +3335,7 @@
             <div class="project-card-body">
               <h3 class="project-card-title">GE Power Lead Time Analytics</h3>
               <div class="project-card-badges">
-                <span class="project-badge">📈 Executive KPIs</span>
-                <span class="project-badge">🚀 Performance Optimization</span>
-                <span class="project-badge">📊 Decision Support</span>
+                <span class="project-badge outcome">⚡ Optimized supplier lead time workflows</span>
               </div>
               <p class="project-card-desc">Supplier logistics lead time tracking pipeline with pre-aggregated SQL snapshot tables and alert parameters in Talend.</p>
               <div class="project-card-techs">
@@ -3364,8 +3359,7 @@
             <div class="project-card-body">
               <h3 class="project-card-title">Python Fuzzy Deduplication</h3>
               <div class="project-card-badges">
-                <span class="project-badge">⚡ Automation</span>
-                <span class="project-badge">🔐 Enterprise Governance</span>
+                <span class="project-badge outcome">⚡ Automated vendor name data cleansing</span>
               </div>
               <p class="project-card-desc">Automated vendor name data cleansing script using Jaro-Winkler string similarity metrics and Union-Find records grouping.</p>
               <div class="project-card-techs">
@@ -3389,8 +3383,7 @@
             <div class="project-card-body">
               <h3 class="project-card-title">International Analytics Job Pipeline</h3>
               <div class="project-card-badges">
-                <span class="project-badge">⚡ Automation</span>
-                <span class="project-badge">📊 Decision Support</span>
+                <span class="project-badge outcome">⚡ Visa sponsor relevance-scoring pipeline</span>
               </div>
               <p class="project-card-desc">End-to-end Python pipeline extracting, parsing, relevance-scoring, and exporting visa sponsoring analytics job postings.</p>
               <div class="project-card-techs">
@@ -3414,8 +3407,7 @@
             <div class="project-card-body">
               <h3 class="project-card-title">Workbook Sentinel</h3>
               <div class="project-card-badges">
-                <span class="project-badge">🔒 Privacy</span>
-                <span class="project-badge">🛡️ Governance</span>
+                <span class="project-badge outcome">⚡ Local-first XML schema audit</span>
               </div>
               <p class="project-card-desc">A local-first, zero-data-leakage Tableau Dashboard Extension performing in-memory XML schema structure audits and calculated field lineage tracking.</p>
               <div class="project-card-techs">
@@ -3429,6 +3421,10 @@
               <span>View Case Study</span>
             </div>
           </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+          <button class="btn secondary" id="toggleProjectsBtn" style="padding: 0.65rem 1.5rem; font-size: 0.85rem;">View All Projects</button>
         </div>
       </div>
     </section>
@@ -3527,6 +3523,7 @@
                 </div>
               </div>
             </div>
+            <p style="font-size: 0.82rem; line-height: 1.55; color: var(--text); opacity: 0.85; margin: 0 0 1.25rem 0; font-style: italic; border-left: 2px solid var(--primary); padding-left: 0.75rem;">Sun Life's analytics team serves hundreds of users across multiple business units. The challenge was scaling from ad-hoc reporting to a governed analytics platform.</p>
             <h5 class="timeline-section-title">Key Responsibilities</h5>
             <ul class="timeline-responsibilities">
               <li>Manage Tableau Cloud permissions, schedule automations, and release pipelines.</li>
@@ -3603,6 +3600,7 @@
                 </div>
               </div>
             </div>
+            <p style="font-size: 0.82rem; line-height: 1.55; color: var(--text); opacity: 0.85; margin: 0 0 1.25rem 0; font-style: italic; border-left: 2px solid var(--primary); padding-left: 0.75rem;">Deutsche Bank's compliance and financial planning teams needed consolidated spend dashboards with strict data access controls across departments.</p>
             <h5 class="timeline-section-title">Key Responsibilities</h5>
             <ul class="timeline-responsibilities">
               <li>Led a team of 2 developers delivering compliance and budget analysis dashboards for Deutsche Bank.</li>
@@ -3663,6 +3661,7 @@
                 </div>
               </div>
             </div>
+            <p style="font-size: 0.82rem; line-height: 1.55; color: var(--text); opacity: 0.85; margin: 0 0 1.25rem 0; font-style: italic; border-left: 2px solid var(--primary); padding-left: 0.75rem;">Across 6 years and 4 countries, the focus shifted from individual dashboard delivery to leading a team of 5 developers across Banking, Aviation, and Supply Chain.</p>
             <h5 class="timeline-section-title">Key Responsibilities</h5>
             <ul class="timeline-responsibilities">
               <li>Led a team of 5 BI developers delivering analytics across Banking, Aviation, and Supply Chain domains.</li>
@@ -3879,6 +3878,10 @@
             </div>
             <h3 class="gallery-title">AWS Serverless Event ETL Pipeline</h3>
             <p class="gallery-desc">Complete event-driven data pipeline starting from S3 JSON ingestion, AWS Lambda flattening, S3 Parquet Data Lake conversion, Glue cataloging, and Athena SQL queries.</p>
+            <div style="margin-top: 1rem; border-top: 1px solid var(--border); padding-top: 0.75rem; font-size: 0.72rem; color: var(--muted); display: flex; flex-direction: column; gap: 0.3rem; line-height: 1.45;">
+              <div><strong style="color: var(--text);">Rationale:</strong> Chosen to eliminate VM maintenance and active hosting costs for off-peak hours.</div>
+              <div><strong style="color: var(--text);">Trade-offs:</strong> Athena query costs scale with scanned bytes, requiring strict partitioning and file compaction to prevent cost creep.</div>
+            </div>
           </div>
 
           <!-- Architecture Card 2 -->
@@ -3897,6 +3900,10 @@
             </div>
             <h3 class="gallery-title">AI Conversational BI Engine</h3>
             <p class="gallery-desc">Integrating AWS Bedrock (Claude Reasoning) directly with Tableau worksheets using TabPy server instances.</p>
+            <div style="margin-top: 1rem; border-top: 1px solid var(--border); padding-top: 0.75rem; font-size: 0.72rem; color: var(--muted); display: flex; flex-direction: column; gap: 0.3rem; line-height: 1.45;">
+              <div><strong style="color: var(--text);">Rationale:</strong> Enables zero-network data querying inside the local sandbox by using local schema summaries rather than transferring datasets to the cloud.</div>
+              <div><strong style="color: var(--text);">Trade-offs:</strong> TabPy executions run single-threaded in Python, requiring container scaling to handle concurrent user requests.</div>
+            </div>
           </div>
 
           <!-- Architecture Card 3 -->
@@ -3915,6 +3922,10 @@
             </div>
             <h3 class="gallery-title">Enterprise BI Security Model</h3>
             <p class="gallery-desc">Multi-source schema pipelines using Databricks and SAP HANA live views restricted by dynamic row-level security.</p>
+            <div style="margin-top: 1rem; border-top: 1px solid var(--border); padding-top: 0.75rem; font-size: 0.72rem; color: var(--muted); display: flex; flex-direction: column; gap: 0.3rem; line-height: 1.45;">
+              <div><strong style="color: var(--text);">Rationale:</strong> Centralizes entitlement rules within database mapping tables, avoiding duplication across dashboards.</div>
+              <div><strong style="color: var(--text);">Trade-offs:</strong> Joining security views on large datasets increases query execution times by 10-15%, requiring indexed keys.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -4243,7 +4254,7 @@ Environment: Tableau Desktop/Server/Cloud, Tableau Prep, Amazon Athena, AWS S3, 
 * AI: Built Tableau dashboard extensions with LangChain and OpenAI for conversational analytics and AI-assisted decision support.
 * Platform: Developed an enterprise-wide insurance analytics platform spanning HNW, attrition, adoption, and product performance use cases. Designed a custom platform adoption dashboard suite used by VPs, Product Owners (POs), Change Managers, and BU Heads to track performance and engagement, driving a 30% increase in platform adoption across business units.
 * Customer Experience: Designed and developed a series of dashboards integrating client feedback from Qualtrics, Salesforce, and social media channels at various levels of the customer journey, contributing to a 20% increase in the customer satisfaction index.
-* Impact: Delivered advanced financial reporting with entitlement-based RLS, complex calculations, and robust null handling for executive reporting accuracy.
+* Impact: Delivered advanced financial reporting with entitlement-based RLS, complex calculations, and dynamic null handling for executive reporting accuracy.
 
 Tableau & Data Viz Lead / Developer
 HCL Technologies, Pune  
@@ -4718,28 +4729,69 @@ EDUCATION
       });
     });
 
-        // Project Cards Filtering Logic
+    // Project Cards Filtering & Collapsing Logic
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
+    const toggleProjectsBtn = document.getElementById('toggleProjectsBtn');
+
+    let currentCategory = 'all';
+    let isProjectsCollapsed = true;
+
+    function updateProjectVisibility() {
+      let visibleCount = 0;
+      projectCards.forEach(card => {
+        const matchesCategory = currentCategory === 'all' || 
+          card.getAttribute('data-category').split(' ').includes(currentCategory);
+
+        if (matchesCategory) {
+          visibleCount++;
+          if (isProjectsCollapsed && visibleCount > 3) {
+            card.style.display = 'none';
+            card.classList.add('hidden-by-collapse');
+          } else {
+            card.style.display = 'flex';
+            card.classList.remove('hidden-by-collapse');
+          }
+        } else {
+          card.style.display = 'none';
+          card.classList.remove('hidden-by-collapse');
+        }
+      });
+
+      // Update toggle button text/visibility
+      if (toggleProjectsBtn) {
+        if (currentCategory !== 'all') {
+          toggleProjectsBtn.parentElement.style.display = 'none';
+        } else {
+          toggleProjectsBtn.parentElement.style.display = 'block';
+          toggleProjectsBtn.textContent = isProjectsCollapsed ? 'View All Projects' : 'Show Less';
+        }
+      }
+    }
+
+    if (toggleProjectsBtn) {
+      updateProjectVisibility();
+
+      toggleProjectsBtn.addEventListener('click', () => {
+        isProjectsCollapsed = !isProjectsCollapsed;
+        updateProjectVisibility();
+        if (isProjectsCollapsed) {
+          document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
 
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
-        const category = btn.getAttribute('data-filter');
-        projectCards.forEach(card => {
-          if (category === 'all') {
-            card.style.display = 'flex';
-          } else {
-            const categories = card.getAttribute('data-category').split(' ');
-            if (categories.includes(category)) {
-              card.style.display = 'flex';
-            } else {
-              card.style.display = 'none';
-            }
-          }
-        });
+        currentCategory = btn.getAttribute('data-filter');
+        if (currentCategory !== 'all') {
+          isProjectsCollapsed = false;
+        } else {
+          isProjectsCollapsed = true;
+        }
+        updateProjectVisibility();
       });
     });
 
@@ -4965,7 +5017,7 @@ EDUCATION
         archExplanation: 'Oracle HR database systems feed security tables. Tableau joins dashboards to secure entitlement views. On login, calculated expressions filter rows dynamically.',
         techs: ['Oracle SQL', 'Row Level Security', 'Tableau', 'Active Directory'],
         impact: ['Secured sensitive metrics for 80+ HR managers', 'Eliminated 40 duplicate worksheet copies into a single view', 'Guaranteed compliance with bank data privacy standards'],
-        learnings: ['Entitlement joins must use indexed columns to prevent database lag', 'Always build a fallback admin override entitlement record', 'Leveraging Tableau Server groups handles department-level filtering easily'],
+        learnings: ['Entitlement joins must use indexed columns to prevent database lag', 'Always build a fallback admin override entitlement record', 'Using Tableau Server groups handles department-level filtering easily'],
         github: 'https://github.com/vyankur/secure-hr-analytics-rls',
         demo: '#',
         relatedInsights: ['workbook-sentinel', 'enterprise-rls', 'dashboard-governance'],
@@ -5633,14 +5685,17 @@ EDUCATION
       }
     ];
 
+    let showAllInsights = false;
+
     function renderKnowledgeHub() {
       const kGrid = document.getElementById('knowledgeGrid');
       if (!kGrid) return;
       kGrid.innerHTML = '';
 
-      // Only display the 6 featured insights
+      // Only display the featured insights (progressive disclosure)
       const featured = knowledgeArticles.filter(art => art.featured === true);
-      featured.forEach(art => {
+      const displayedFeatured = showAllInsights ? featured : featured.slice(0, 3);
+      displayedFeatured.forEach(art => {
         const card = document.createElement('div');
         card.className = 'knowledge-card';
         
@@ -5723,7 +5778,7 @@ EDUCATION
       // Dynamically update the counter text from actual data
       const countEl = document.getElementById('roadmapCountText');
       if (countEl) {
-        countEl.textContent = `Showing ${featured.length} of ${knowledgeArticles.length} total insights`;
+        countEl.textContent = `Showing ${displayedFeatured.length} of ${knowledgeArticles.length} total insights`;
       }
     }
 
@@ -6366,11 +6421,15 @@ EDUCATION
     const roadmapSection = document.getElementById('roadmapSection');
     if (viewRoadmapBtn && roadmapSection) {
       viewRoadmapBtn.addEventListener('click', () => {
+        showAllInsights = !showAllInsights;
+        renderKnowledgeHub();
         const isHidden = roadmapSection.style.display === 'none';
         roadmapSection.style.display = isHidden ? 'block' : 'none';
         viewRoadmapBtn.textContent = isHidden ? 'Hide Knowledge Roadmap' : 'View Knowledge Roadmap';
         if (isHidden) {
           roadmapSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          document.getElementById('insights').scrollIntoView({ behavior: 'smooth' });
         }
       });
     }
@@ -6551,7 +6610,7 @@ EDUCATION
       
       get aws() {
         const pipe = projectCaseStudies['aws-pipeline'];
-        return `Ankur has engineered robust cloud analytics pipelines using AWS. In his **${pipe ? pipe.title : 'AWS Data Lake Analytics Pipeline'}** case study, he stores transaction logs as columnar Parquet on S3, catalogs them with Glue, and connects Tableau live using Athena as a virtualized SQL engine, decreasing load times by 35% and saving USD 50K.`;
+        return `Ankur has engineered scalable cloud analytics pipelines using AWS. In his **${pipe ? pipe.title : 'AWS Data Lake Analytics Pipeline'}** case study, he stores transaction logs as columnar Parquet on S3, catalogs them with Glue, and connects Tableau live using Athena as a virtualized SQL engine, decreasing load times by 35% and saving USD 50K.`;
       },
       
       ge: 'At GE Power (under TCS), Ankur automated defect reporting and CAS compliance dashboarding, saving 95% manual effort. He designed a Python fuzzy deduplication script to clean supplier databases and optimized lead-time dashboards, lowering latency by 35%.',
@@ -6770,7 +6829,7 @@ EDUCATION
         sheet: "Ankur",
         views: 425,
         category: "Interactive Resumes",
-        desc: "A comprehensive BI-based resume detailing work history, tools, and timelines."
+        desc: "An interactive BI-based resume detailing work history, tools, and timelines."
       },
       {
         title: "Boston Crime Rate Monitoring",
