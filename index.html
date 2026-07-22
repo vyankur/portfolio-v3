@@ -2414,6 +2414,21 @@
       border: 1px solid var(--border);
     }
 
+    .cmd-group-header {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.6rem 0.8rem 0.25rem 0.8rem;
+      margin-top: 0.4rem;
+      border-bottom: 1px solid var(--border);
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
     /* AI Resume Chatbot Styles */
     .bot-trigger {
       position: fixed;
@@ -7133,70 +7148,202 @@ EDUCATION
     // Restored Features: Command Palette, Chatbot & Tableau Event Listeners
     // ==========================================
     
-    // Command Palette Logic
+    // Navigation Helper
+    window.navigateTo = function(target) {
+      if (typeof closeCmdPalette === 'function') {
+        closeCmdPalette();
+      }
+      
+      if (!target) return;
+
+      // Handle custom action triggers
+      if (target === 'download-pdf') {
+        const pdfLink = document.createElement('a');
+        pdfLink.href = './assets/Ankur_Varshney_Resume.pdf';
+        pdfLink.download = 'Ankur_Varshney_Resume.pdf';
+        pdfLink.click();
+        return;
+      }
+      if (target === 'copy-ats') {
+        const atsText = document.getElementById('atsResumeText');
+        if (atsText) {
+          navigator.clipboard.writeText(atsText.textContent);
+          alert('ATS Resume text copied to clipboard!');
+        }
+        return;
+      }
+      if (target === 'view-resume-modal') {
+        const modal = document.getElementById('resumeViewerModal');
+        if (modal) {
+          modal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+        return;
+      }
+
+      // Check if hash route (e.g. #/insights/slug or #/projects/slug)
+      if (target.startsWith('#/')) {
+        window.location.hash = target;
+        return;
+      }
+      
+      // If we are currently on an article or project page, switch back to home view first
+      const articleView = document.getElementById('article-view-content');
+      const projectView = document.getElementById('project-view-content');
+      const mainShell = document.querySelector('main');
+      
+      if (articleView) articleView.style.display = 'none';
+      if (projectView) projectView.style.display = 'none';
+      if (mainShell) mainShell.style.display = 'block';
+
+      // If target is #resume, ensure section expands
+      if (target === '#resume' && typeof toggleResumeSection === 'function') {
+        toggleResumeSection(true);
+      }
+
+      // Scroll to section element
+      const sectionId = target.replace('#', '');
+      const elem = document.getElementById(sectionId);
+      if (elem) {
+        elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, null, target);
+      } else {
+        window.location.hash = target;
+      }
+    };
+
+    // Command Palette Logic with Professional Category Headers
     const cmdPaletteBackdrop = document.getElementById('cmdPaletteBackdrop');
     const searchTriggerBtn = document.getElementById('searchTriggerBtn');
     const cmdInput = document.getElementById('cmdInput');
     const cmdList = document.getElementById('cmdList');
 
-    const commands = [
-      { id: 'home', label: 'Go to Home', action: () => navigateTo('#home'), icon: '&#xe88a;' },
-      { id: 'impact', label: 'Go to Impact', action: () => navigateTo('#impact'), icon: '&#xe8e8;' },
-      { id: 'projects', label: 'Go to Projects', action: () => navigateTo('#projects'), icon: '&#xe1bc;' },
-      { id: 'insights', label: 'Go to Insights', action: () => navigateTo('#featured-insights'), icon: '&#xe80b;' },
-      { id: 'experience', label: 'Go to Experience', action: () => navigateTo('#experience'), icon: '&#xe8f9;' },
-      { id: 'skills', label: 'Go to Skills', action: () => navigateTo('#skills'), icon: '&#xe869;' },
-      { id: 'architecture', label: 'Go to Architecture', action: () => navigateTo('#architecture'), icon: '&#xe871;' },
-      { id: 'tableau', label: 'Go to Tableau Embeds', action: () => navigateTo('#tableau-embeds'), icon: '&#xe801;' },
-      { id: 'github', label: 'Go to GitHub', action: () => navigateTo('#github'), icon: '&#xe87b;' },
-      { id: 'testimonials', label: 'Go to Testimonials', action: () => navigateTo('#testimonials'), icon: '&#xe0b9;' },
-      { id: 'certifications', label: 'Go to Certifications', action: () => navigateTo('#certifications'), icon: '&#xe86c;' },
-      { id: 'resume', label: 'Go to Resume', action: () => navigateTo('#resume'), icon: '&#xe873;' },
-      { id: 'contact', label: 'Go to Contact', action: () => navigateTo('#contact'), icon: '&#xe0ba;' }
+    const commandGroups = [
+      {
+        category: 'Navigation Sections',
+        icon: '📌',
+        items: [
+          { label: 'Go to Home', target: '#home', badge: 'Section' },
+          { label: 'Go to Business Impact', target: '#impact', badge: 'Metrics' },
+          { label: 'Go to Featured Projects', target: '#projects', badge: 'Case Studies' },
+          { label: 'Go to Knowledge Hub', target: '#featured-insights', badge: 'Articles' },
+          { label: 'Go to Professional Experience', target: '#experience', badge: 'Career' },
+          { label: 'Go to Core Skills & Architecture', target: '#skills', badge: 'Tech Stack' },
+          { label: 'Go to Tableau Embeds', target: '#tableau-embeds', badge: 'Dashboards' },
+          { label: 'Go to Endorsements & Feedback', target: '#testimonials', badge: 'Reviews' },
+          { label: 'Go to Resume & Credentials', target: '#resume', badge: 'Resume' },
+          { label: 'Go to Contact Info', target: '#contact', badge: 'Contact' }
+        ]
+      },
+      {
+        category: 'Featured Case Studies',
+        icon: '🚀',
+        items: [
+          { label: 'Agentic Conversational BI Extension', target: '#/projects/ai-bi', badge: 'AI + Tableau' },
+          { label: 'Workbook Sentinel (Local Metadata Parser)', target: '#/projects/workbook-sentinel', badge: 'Security' },
+          { label: 'Tableau Full-Year Heatmap Date Picker', target: '#/projects/calendar', badge: 'React SDK' },
+          { label: 'AWS S3 + Athena Analytics Pipeline', target: '#/projects/aws-pipeline', badge: 'AWS Cloud' },
+          { label: 'Tableau Server Repository Governance Analytics', target: '#/projects/repo-analytics', badge: 'Postgres' },
+          { label: 'Insurance Platform Adoption Suite', target: '#/projects/reporting-framework', badge: 'DevOps' },
+          { label: 'Secure HR Analytics (FAB Bank)', target: '#/projects/hr-risk', badge: 'RLS Security' },
+          { label: 'Supply Chain Lead Time Predictor (GE Power)', target: '#/projects/supply-chain', badge: 'Oracle SQL' }
+        ]
+      },
+      {
+        category: 'Knowledge Hub Technical Guides',
+        icon: '📚',
+        items: [
+          { label: 'Building Workbook Sentinel: Local Metadata Parser', target: '#/insights/workbook-sentinel', badge: '18 min' },
+          { label: 'Tableau Performance Tuning: Dashboards Under 2s', target: '#/insights/tableau-performance-tuning', badge: '15 min' },
+          { label: 'AI in Tableau: Bedrock & LangChain via TabPy', target: '#/insights/ai-in-tableau', badge: '12 min' },
+          { label: 'Querying Tableau Server Repository Postgres DB', target: '#/insights/tableau-server-repository', badge: '12 min' },
+          { label: 'Window Functions Deep Dive: SQL Superpower', target: '#/insights/window-functions', badge: '8 min' }
+        ]
+      },
+      {
+        category: 'Quick Actions & Resume',
+        icon: '⚡',
+        items: [
+          { label: 'Download Official Resume (PDF)', target: 'download-pdf', badge: 'PDF' },
+          { label: 'Copy ATS Resume Text to Clipboard', target: 'copy-ats', badge: 'Clipboard' },
+          { label: 'View Fullscreen Resume Modal', target: 'view-resume-modal', badge: 'Modal' }
+        ]
+      }
     ];
 
+    let currentFlattenedCmds = [];
+
     function openCmdPalette() {
+      if (!cmdPaletteBackdrop) return;
       cmdPaletteBackdrop.classList.add('active');
       cmdInput.value = '';
-      renderCommands(commands);
+      renderCategorizedCommands('');
       setTimeout(() => cmdInput.focus(), 50);
       document.body.style.overflow = 'hidden';
     }
 
     function closeCmdPalette() {
+      if (!cmdPaletteBackdrop) return;
       cmdPaletteBackdrop.classList.remove('active');
       document.body.style.overflow = '';
     }
 
-    function renderCommands(filteredCmds) {
+    function renderCategorizedCommands(filterText = '') {
       cmdList.innerHTML = '';
-      filteredCmds.forEach((cmd, idx) => {
-        const li = document.createElement('li');
-        li.className = 'cmd-item' + (idx === 0 ? ' selected' : '');
-        li.innerHTML = `<span class="cmd-item-label">${cmd.label}</span>`;
-        li.addEventListener('click', () => {
-          cmd.action();
-        });
-        cmdList.appendChild(li);
+      currentFlattenedCmds = [];
+      const query = filterText.toLowerCase().trim();
+
+      commandGroups.forEach(group => {
+        const matchingItems = group.items.filter(item => item.label.toLowerCase().includes(query) || item.badge.toLowerCase().includes(query));
+        if (matchingItems.length > 0) {
+          // Render category header
+          const header = document.createElement('div');
+          header.className = 'cmd-group-header';
+          header.innerHTML = `<span>${group.icon}</span> <span>${group.category}</span>`;
+          cmdList.appendChild(header);
+
+          matchingItems.forEach(item => {
+            const index = currentFlattenedCmds.length;
+            currentFlattenedCmds.push(item);
+
+            const li = document.createElement('li');
+            li.className = 'cmd-item' + (index === 0 ? ' selected' : '');
+            li.setAttribute('data-target', item.target);
+            li.innerHTML = `
+              <span class="cmd-item-label">${item.label}</span>
+              <span class="cmd-item-shortcut">${item.badge}</span>
+            `;
+            li.addEventListener('click', () => {
+              window.navigateTo(item.target);
+            });
+            cmdList.appendChild(li);
+          });
+        }
+      });
+
+      if (currentFlattenedCmds.length === 0) {
+        cmdList.innerHTML = '<div style="padding: 1.25rem; text-align: center; color: var(--muted); font-size: 0.85rem;">No matching commands or sections found.</div>';
+      }
+    }
+
+    if (searchTriggerBtn) searchTriggerBtn.addEventListener('click', openCmdPalette);
+    if (cmdPaletteBackdrop) {
+      cmdPaletteBackdrop.addEventListener('click', (e) => {
+        if (e.target === cmdPaletteBackdrop) closeCmdPalette();
       });
     }
 
-    searchTriggerBtn.addEventListener('click', openCmdPalette);
-    cmdPaletteBackdrop.addEventListener('click', (e) => {
-      if (e.target === cmdPaletteBackdrop) closeCmdPalette();
-    });
-
-    cmdInput.addEventListener('input', (e) => {
-      const q = e.target.value.toLowerCase();
-      const filtered = commands.filter(c => c.label.toLowerCase().includes(q));
-      renderCommands(filtered);
-    });
+    if (cmdInput) {
+      cmdInput.addEventListener('input', (e) => {
+        renderCategorizedCommands(e.target.value);
+      });
+    }
 
     // Keyboard controls for palette
     document.addEventListener('keydown', (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
         e.preventDefault();
-        if (cmdPaletteBackdrop.classList.contains('active')) {
+        if (cmdPaletteBackdrop && cmdPaletteBackdrop.classList.contains('active')) {
           closeCmdPalette();
         } else {
           openCmdPalette();
@@ -7210,14 +7357,14 @@ EDUCATION
         toggleBotChat(false);
       }
 
-      if (cmdPaletteBackdrop.classList.contains('active')) {
+      if (cmdPaletteBackdrop && cmdPaletteBackdrop.classList.contains('active')) {
         const items = cmdList.querySelectorAll('.cmd-item');
         let selectedIdx = Array.from(items).findIndex(item => item.classList.contains('selected'));
 
         if (e.key === 'ArrowDown') {
           e.preventDefault();
           if (items.length > 0) {
-            items[selectedIdx].classList.remove('selected');
+            if (selectedIdx !== -1) items[selectedIdx].classList.remove('selected');
             selectedIdx = (selectedIdx + 1) % items.length;
             items[selectedIdx].classList.add('selected');
             items[selectedIdx].scrollIntoView({ block: 'nearest' });
@@ -7225,17 +7372,15 @@ EDUCATION
         } else if (e.key === 'ArrowUp') {
           e.preventDefault();
           if (items.length > 0) {
-            items[selectedIdx].classList.remove('selected');
+            if (selectedIdx !== -1) items[selectedIdx].classList.remove('selected');
             selectedIdx = (selectedIdx - 1 + items.length) % items.length;
             items[selectedIdx].classList.add('selected');
             items[selectedIdx].scrollIntoView({ block: 'nearest' });
           }
         } else if (e.key === 'Enter') {
           e.preventDefault();
-          if (items.length > 0 && selectedIdx !== -1) {
-            const label = items[selectedIdx].querySelector('.cmd-item-label').textContent;
-            const targetCmd = commands.find(c => c.label === label);
-            if (targetCmd) targetCmd.action();
+          if (items.length > 0 && selectedIdx !== -1 && currentFlattenedCmds[selectedIdx]) {
+            window.navigateTo(currentFlattenedCmds[selectedIdx].target);
           }
         }
       }
