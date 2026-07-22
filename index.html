@@ -357,15 +357,17 @@
     .company-logo {
       display: inline-block;
       vertical-align: middle;
-      transition: transform 0.2s ease, color 0.2s ease;
+      height: 28px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(100%) opacity(55%);
+      transition: all 0.25s ease;
     }
 
-    .marquee-item:hover .sunlife-logo { color: #f59e0b; }
-    .marquee-item:hover .db-logo { color: #0284c7; }
-    .marquee-item:hover .hcl-logo { color: #2563eb; }
-    .marquee-item:hover .tcs-logo { color: #0d9488; }
-    .marquee-item:hover .fab-logo { color: #dc2626; }
-    .marquee-item:hover .ge-logo { color: #4f46e5; }
+    .marquee-item:hover .company-logo {
+      filter: grayscale(0%) opacity(100%);
+      transform: scale(1.05);
+    }
 
     .spec-item {
       font-family: 'Outfit', sans-serif;
@@ -402,7 +404,7 @@
 
     .hero-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.55fr);
       gap: 4rem;
       align-items: center;
     }
@@ -415,8 +417,8 @@
     }
 
     .hero-avatar-circle {
-      width: 260px;
-      height: 260px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       overflow: hidden;
       border: 6px solid var(--card-bg);
@@ -432,8 +434,8 @@
 
     .hero-avatar-ring {
       position: absolute;
-      width: 300px;
-      height: 300px;
+      width: 236px;
+      height: 236px;
       border: 1px dashed var(--primary);
       border-radius: 50%;
       animation: spin 30s linear infinite;
@@ -2930,6 +2932,23 @@
         gap: 0.85rem;
       }
     }
+    
+    /* Industries Served Grid Styles */
+    @media (max-width: 900px) {
+      .industries-grid-v4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .industries-grid-v4 {
+        grid-template-columns: 1fr !important;
+      }
+    }
+    .industry-card-v4:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary) !important;
+      box-shadow: 0 4px 12px var(--shadow);
+    }
   </style>
 </head>
 <body>
@@ -2975,11 +2994,10 @@
             <p style="font-size: clamp(1.15rem, 1.8vw, 1.45rem); font-weight: 600; color: var(--text); margin-bottom: 0.75rem; line-height: 1.35; max-width: 820px;">Helping organizations unlock measurable business value through Tableau, Cloud Data Platforms and AI-assisted Analytics.</p>
             <p class="hero-title" style="font-size: clamp(0.98rem, 1.35vw, 1.15rem); font-weight: 500; color: var(--text); margin-bottom: 1.2rem; line-height: 1.5; max-width: 820px; opacity: 0.9;">For 11+ years, I've delivered enterprise analytics solutions across insurance, banking, aviation, manufacturing, and energy, helping teams automate reporting, improve governance, and make better business decisions.</p>
             <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.75rem;">
-              <span style="font-size: 0.68rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; background: var(--primary-light); color: var(--primary); letter-spacing: 0.05em; text-transform: uppercase;">📊 11+ Years</span>
-              <span style="font-size: 0.68rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; background: var(--primary-light); color: var(--primary); letter-spacing: 0.05em; text-transform: uppercase;">🏢 6 Industries</span>
-              <span style="font-size: 0.68rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; background: var(--primary-light); color: var(--primary); letter-spacing: 0.05em; text-transform: uppercase;">🌍 4 Regions</span>
-              <span style="font-size: 0.68rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; background: var(--primary-light); color: var(--primary); letter-spacing: 0.05em; text-transform: uppercase;">📈 Enterprise BI</span>
-              <span style="font-size: 0.68rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; background: var(--primary-light); color: var(--primary); letter-spacing: 0.05em; text-transform: uppercase;">☁️ Cloud Analytics</span>
+              <span style="font-size: 0.68rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; background: var(--primary-light); color: var(--primary); letter-spacing: 0.05em; text-transform: uppercase;">11+ Years Experience</span>
+              <span style="font-size: 0.68rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; background: var(--primary-light); color: var(--primary); letter-spacing: 0.05em; text-transform: uppercase;">6 Industries</span>
+              <span style="font-size: 0.68rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; background: var(--primary-light); color: var(--primary); letter-spacing: 0.05em; text-transform: uppercase;">Enterprise BI</span>
+              <span style="font-size: 0.68rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 4px; background: var(--primary-light); color: var(--primary); letter-spacing: 0.05em; text-transform: uppercase;">Cloud Analytics</span>
             </div>
             <div class="hero-actions">
               <a href="./assets/Ankur_Varshney_Resume.pdf" download class="btn primary">
@@ -2998,88 +3016,73 @@
           </div>
         </div>
 
-        <!-- Running Marquee: Corporate Experience Logos -->
+        <!-- Running Marquee: Corporate Experience Logos & Core Capabilities -->
         <div class="client-marquee">
+          <!-- Row 1: Companies (Logos) -->
           <div class="marquee-row">
             <span class="marquee-label">Companies</span>
             <div class="marquee-wrapper">
               <div class="marquee-track">
-                <span class="marquee-item">
-                  <svg class="company-logo sunlife-logo" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M2 12h2.5M19.5 12H22M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                  Sun Life Financial
-                </span>
-                <span class="marquee-item">
-                  <svg class="company-logo db-logo" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7" y1="17" x2="17" y2="7" stroke-width="3" stroke-linecap="round"/></svg>
-                  Deutsche Bank
-                </span>
-                <span class="marquee-item">
-                  <svg class="company-logo hcl-logo" viewBox="0 0 28 16" width="22" height="14" fill="currentColor"><path d="M1 2h3v4.5h4V2h3v12H8V9.5H4V14H1V2zm11.5 0h10.5v3H16v1.8h5.5v2.8H16v1.9h7V14H12.5V2z"/></svg>
-                  HCLTech
-                </span>
-                <span class="marquee-item">
-                  <svg class="company-logo tcs-logo" viewBox="0 0 24 16" width="20" height="14" fill="currentColor"><path d="M1 2h22v3h-9.5v9h-3V5H1V2z"/></svg>
-                  TCS
-                </span>
-                <span class="marquee-item">
-                  <svg class="company-logo fab-logo" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zm0 5.5L6.5 7 12 4.25 17.5 7 12 7.5zM2 12l10 5 10-5M2 17l10 5 10-5" stroke="currentColor" stroke-width="1.2"/></svg>
-                  First Abu Dhabi Bank
-                </span>
-                <span class="marquee-item">
-                  <svg class="company-logo ge-logo" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 9.5C8 10.5 8 13.5 9 14.5c1 1 2.5.5 3-.5m-3-2h3M15 9.5c-.5 0-1 .5-1 1v3.5c0 .5.5 1 1 1h2.5" stroke-linecap="round"/></svg>
-                  GE Power
-                </span>
-
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/sun life.png" alt="Sun Life Financial"> Sun Life Financial</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/db.png" alt="Deutsche Bank"> Deutsche Bank</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/hcl.jpg" alt="HCLTech"> HCLTech</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/tcs.png" alt="TCS"> TCS</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/fab.webp" alt="First Abu Dhabi Bank"> First Abu Dhabi Bank</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/ge.png" alt="GE Power"> GE Power</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/sia.png" alt="Singapore Airlines"> Singapore Airlines</span>
+                
                 <!-- Repeat Set 2 -->
-                <span class="marquee-item">
-                  <svg class="company-logo sunlife-logo" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M2 12h2.5M19.5 12H22M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                  Sun Life Financial
-                </span>
-                <span class="marquee-item">
-                  <svg class="company-logo db-logo" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7" y1="17" x2="17" y2="7" stroke-width="3" stroke-linecap="round"/></svg>
-                  Deutsche Bank
-                </span>
-                <span class="marquee-item">
-                  <svg class="company-logo hcl-logo" viewBox="0 0 28 16" width="22" height="14" fill="currentColor"><path d="M1 2h3v4.5h4V2h3v12H8V9.5H4V14H1V2zm11.5 0h10.5v3H16v1.8h5.5v2.8H16v1.9h7V14H12.5V2z"/></svg>
-                  HCLTech
-                </span>
-                <span class="marquee-item">
-                  <svg class="company-logo tcs-logo" viewBox="0 0 24 16" width="20" height="14" fill="currentColor"><path d="M1 2h22v3h-9.5v9h-3V5H1V2z"/></svg>
-                  TCS
-                </span>
-                <span class="marquee-item">
-                  <svg class="company-logo fab-logo" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zm0 5.5L6.5 7 12 4.25 17.5 7 12 7.5zM2 12l10 5 10-5M2 17l10 5 10-5" stroke="currentColor" stroke-width="1.2"/></svg>
-                  First Abu Dhabi Bank
-                </span>
-                <span class="marquee-item">
-                  <svg class="company-logo ge-logo" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 9.5C8 10.5 8 13.5 9 14.5c1 1 2.5.5 3-.5m-3-2h3M15 9.5c-.5 0-1 .5-1 1v3.5c0 .5.5 1 1 1h2.5" stroke-linecap="round"/></svg>
-                  GE Power
-                </span>
-
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/sun life.png" alt="Sun Life Financial"> Sun Life Financial</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/db.png" alt="Deutsche Bank"> Deutsche Bank</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/hcl.jpg" alt="HCLTech"> HCLTech</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/tcs.png" alt="TCS"> TCS</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/fab.webp" alt="First Abu Dhabi Bank"> First Abu Dhabi Bank</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/ge.png" alt="GE Power"> GE Power</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/sia.png" alt="Singapore Airlines"> Singapore Airlines</span>
+                
                 <!-- Repeat Set 3 -->
-                <span class="marquee-item">
-                  <svg class="company-logo sunlife-logo" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.93 4.93l1.77 1.77M17.3 17.3l1.77 1.77M2 12h2.5M19.5 12H22M4.93 19.07l1.77-1.77M17.3 6.7l1.77-1.77" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-                  Sun Life Financial
-                </span>
-                <span class="marquee-item">
-                  <svg class="company-logo db-logo" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="7" y1="17" x2="17" y2="7" stroke-width="3" stroke-linecap="round"/></svg>
-                  Deutsche Bank
-                </span>
-                <span class="marquee-item">
-                  <svg class="company-logo hcl-logo" viewBox="0 0 28 16" width="22" height="14" fill="currentColor"><path d="M1 2h3v4.5h4V2h3v12H8V9.5H4V14H1V2zm11.5 0h10.5v3H16v1.8h5.5v2.8H16v1.9h7V14H12.5V2z"/></svg>
-                  HCLTech
-                </span>
-                <span class="marquee-item">
-                  <svg class="company-logo tcs-logo" viewBox="0 0 24 16" width="20" height="14" fill="currentColor"><path d="M1 2h22v3h-9.5v9h-3V5H1V2z"/></svg>
-                  TCS
-                </span>
-                <span class="marquee-item">
-                  <svg class="company-logo fab-logo" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zm0 5.5L6.5 7 12 4.25 17.5 7 12 7.5zM2 12l10 5 10-5M2 17l10 5 10-5" stroke="currentColor" stroke-width="1.2"/></svg>
-                  First Abu Dhabi Bank
-                </span>
-                <span class="marquee-item">
-                  <svg class="company-logo ge-logo" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8.5 9.5C8 10.5 8 13.5 9 14.5c1 1 2.5.5 3-.5m-3-2h3M15 9.5c-.5 0-1 .5-1 1v3.5c0 .5.5 1 1 1h2.5" stroke-linecap="round"/></svg>
-                  GE Power
-                </span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/sun life.png" alt="Sun Life Financial"> Sun Life Financial</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/db.png" alt="Deutsche Bank"> Deutsche Bank</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/hcl.jpg" alt="HCLTech"> HCLTech</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/tcs.png" alt="TCS"> TCS</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/fab.webp" alt="First Abu Dhabi Bank"> First Abu Dhabi Bank</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/ge.png" alt="GE Power"> GE Power</span>
+                <span class="marquee-item"><img class="company-logo" src="./assets/logos/sia.png" alt="Singapore Airlines"> Singapore Airlines</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Row 2: Specializations (Scrolling text) -->
+          <div class="marquee-row" style="margin-top: 0.75rem; border-top: 1px dashed var(--border); padding-top: 0.75rem;">
+            <span class="marquee-label">Expertise</span>
+            <div class="marquee-wrapper">
+              <div class="marquee-track marquee-track-reverse">
+                <span class="spec-item">Data Viz Architect <span class="spec-star">✦</span></span>
+                <span class="spec-item">AWS Cloud Analytics <span class="spec-star">✦</span></span>
+                <span class="spec-item">SQL Performance Tuning <span class="spec-star">✦</span></span>
+                <span class="spec-item">Generative AI for BI <span class="spec-star">✦</span></span>
+                <span class="spec-item">Python <span class="spec-star">✦</span></span>
+                
+                <!-- Repeat Set 2 -->
+                <span class="spec-item">Data Viz Architect <span class="spec-star">✦</span></span>
+                <span class="spec-item">AWS Cloud Analytics <span class="spec-star">✦</span></span>
+                <span class="spec-item">SQL Performance Tuning <span class="spec-star">✦</span></span>
+                <span class="spec-item">Generative AI for BI <span class="spec-star">✦</span></span>
+                <span class="spec-item">Python <span class="spec-star">✦</span></span>
+                
+                <!-- Repeat Set 3 -->
+                <span class="spec-item">Data Viz Architect <span class="spec-star">✦</span></span>
+                <span class="spec-item">AWS Cloud Analytics <span class="spec-star">✦</span></span>
+                <span class="spec-item">SQL Performance Tuning <span class="spec-star">✦</span></span>
+                <span class="spec-item">Generative AI for BI <span class="spec-star">✦</span></span>
+                <span class="spec-item">Python <span class="spec-star">✦</span></span>
+                
+                <!-- Repeat Set 4 -->
+                <span class="spec-item">Data Viz Architect <span class="spec-star">✦</span></span>
+                <span class="spec-item">AWS Cloud Analytics <span class="spec-star">✦</span></span>
+                <span class="spec-item">SQL Performance Tuning <span class="spec-star">✦</span></span>
+                <span class="spec-item">Generative AI for BI <span class="spec-star">✦</span></span>
+                <span class="spec-item">Python <span class="spec-star">✦</span></span>
               </div>
             </div>
           </div>
@@ -3194,14 +3197,6 @@
             <p class="impact-desc">Tuned Tableau performance via context filtering, index pushdowns, and LOD refactoring.</p>
           </div>
           <!-- Impact 6 -->
-          <div class="impact-card" onclick="navigateToImpact('experience-sunlife')">
-            <div class="impact-icon">
-              <svg viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
-            </div>
-            <h3 class="impact-title">20% CSAT Growth</h3>
-            <p class="impact-desc">Developed client feedback journey maps linking Salesforce, Qualtrics, and social data streams.</p>
-          </div>
-          <!-- Impact 7 -->
           <div class="impact-card" onclick="navigateToImpact('#/projects/hr-risk')">
             <div class="impact-icon">
               <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -3209,43 +3204,67 @@
             <h3 class="impact-title">100% Security Enforced</h3>
             <p class="impact-desc">Designed entitlement-based dynamic row-level security restricting sensitive financial records.</p>
           </div>
-          <!-- Impact 8 -->
-          <div class="impact-card" onclick="navigateToImpact('experience')">
-            <div class="impact-icon">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10zM2 12h20"/></svg>
-            </div>
-            <h3 class="impact-title">Global Footprint</h3>
-            <p class="impact-desc">Delivered enterprise reporting solutions across Singapore, Germany, UK, UAE, and India.</p>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- Industries & Countries Served Banner -->
-    <section class="section light" style="background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 3rem 0;">
+    <!-- Industries Served Section -->
+    <section class="section light" style="background: var(--bg); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4.5rem 0;">
       <div class="shell">
-        <div class="served-layout">
-          <!-- Industries -->
-          <div>
-            <h4 style="font-size: 0.75rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Industries Served</h4>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-              <span style="font-size: 0.75rem; font-weight: 600; padding: 0.4rem 0.8rem; border-radius: 4px; background: var(--card-bg); border: 1px solid var(--border); color: var(--text);">🏥 Insurance</span>
-              <span style="font-size: 0.75rem; font-weight: 600; padding: 0.4rem 0.8rem; border-radius: 4px; background: var(--card-bg); border: 1px solid var(--border); color: var(--text);">🏦 Banking</span>
-              <span style="font-size: 0.75rem; font-weight: 600; padding: 0.4rem 0.8rem; border-radius: 4px; background: var(--card-bg); border: 1px solid var(--border); color: var(--text);">✈️ Aviation</span>
-              <span style="font-size: 0.75rem; font-weight: 600; padding: 0.4rem 0.8rem; border-radius: 4px; background: var(--card-bg); border: 1px solid var(--border); color: var(--text);">🏭 Manufacturing</span>
-              <span style="font-size: 0.75rem; font-weight: 600; padding: 0.4rem 0.8rem; border-radius: 4px; background: var(--card-bg); border: 1px solid var(--border); color: var(--text);">⚡ Energy &amp; Power</span>
-              <span style="font-size: 0.75rem; font-weight: 600; padding: 0.4rem 0.8rem; border-radius: 4px; background: var(--card-bg); border: 1px solid var(--border); color: var(--text);">💻 Technology</span>
+        <div class="section-head" style="text-align: center; margin-bottom: 3rem;">
+          <div class="eyebrow">Expertise</div>
+          <h2 class="section-title">Industries <em>Served</em></h2>
+          <p class="section-copy" style="max-width: 600px; margin: 0.5rem auto 0 auto;">Over 11+ years of consulting, delivering domain-specific analytics solutions tailored to sector challenges.</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;" class="industries-grid-v4">
+          <!-- Industry 1: Insurance -->
+          <div style="background: var(--card-bg); border: 1px solid var(--border); padding: 1.5rem; border-radius: 8px; transition: transform 0.25s ease, border-color 0.25s ease;" class="industry-card-v4">
+            <div style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">Insurance</h4>
+            <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5; margin: 0;">Designed claims dashboards, policy distribution engines, and CRM telemetry models at Sun Life.</p>
           </div>
-          <!-- Countries -->
-          <div>
-            <h4 style="font-size: 0.75rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem;">Global Footprint</h4>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.6rem;">
-              <span style="font-size: 0.75rem; font-weight: 600; padding: 0.4rem 0.8rem; border-radius: 4px; background: var(--card-bg); border: 1px solid var(--border); color: var(--text);">🇸🇬 Singapore</span>
-              <span style="font-size: 0.75rem; font-weight: 600; padding: 0.4rem 0.8rem; border-radius: 4px; background: var(--card-bg); border: 1px solid var(--border); color: var(--text);">🇪🇺 Europe</span>
-              <span style="font-size: 0.75rem; font-weight: 600; padding: 0.4rem 0.8rem; border-radius: 4px; background: var(--card-bg); border: 1px solid var(--border); color: var(--text);">🇦🇪 Middle East</span>
-              <span style="font-size: 0.75rem; font-weight: 600; padding: 0.4rem 0.8rem; border-radius: 4px; background: var(--card-bg); border: 1px solid var(--border); color: var(--text);">🇮🇳 India</span>
+          <!-- Industry 2: Banking & Finance -->
+          <div style="background: var(--card-bg); border: 1px solid var(--border); padding: 1.5rem; border-radius: 8px; transition: transform 0.25s ease, border-color 0.25s ease;" class="industry-card-v4">
+            <div style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="18" height="12" rx="2"/><path d="M12 2L2 7h20L12 2zM6 22v-12M10 22v-12M14 22v-12M18 22v-12"/></svg>
             </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">Banking &amp; Financial Services</h4>
+            <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5; margin: 0;">Built spend controls, transaction risk monitors, and Dynamic RLS access matrices at Deutsche Bank &amp; FAB.</p>
+          </div>
+          <!-- Industry 3: Aviation & Airlines -->
+          <div style="background: var(--card-bg); border: 1px solid var(--border); padding: 1.5rem; border-radius: 8px; transition: transform 0.25s ease, border-color 0.25s ease;" class="industry-card-v4">
+            <div style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M12 22V12M12 12l8.5-4.9M12 12L3.5 7.1"/></svg>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">Aviation &amp; Logistics</h4>
+            <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5; margin: 0;">Developed operations telemetry, cargo tracking frameworks, and route utilization matrices for Singapore Airlines.</p>
+          </div>
+          <!-- Industry 4: Manufacturing -->
+          <div style="background: var(--card-bg); border: 1px solid var(--border); padding: 1.5rem; border-radius: 8px; transition: transform 0.25s ease, border-color 0.25s ease;" class="industry-card-v4">
+            <div style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20V4l6 4 6-4 6 4v16l-6-4-6 4-6-4z"/><path d="M8 8v12M14 4v12"/></svg>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">Manufacturing</h4>
+            <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5; margin: 0;">Optimized supply chain databases, production run yield reporting, and vendor procurement cycle views.</p>
+          </div>
+          <!-- Industry 5: Energy & Power -->
+          <div style="background: var(--card-bg); border: 1px solid var(--border); padding: 1.5rem; border-radius: 8px; transition: transform 0.25s ease, border-color 0.25s ease;" class="industry-card-v4">
+            <div style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">Energy &amp; Utilities</h4>
+            <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5; margin: 0;">Created load utilization models, smart grid telemetry views, and turbine operational charts for GE Power.</p>
+          </div>
+          <!-- Industry 6: Technology & Services -->
+          <div style="background: var(--card-bg); border: 1px solid var(--border); padding: 1.5rem; border-radius: 8px; transition: transform 0.25s ease, border-color 0.25s ease;" class="industry-card-v4">
+            <div style="color: var(--primary); margin-bottom: 1rem; display: flex; align-items: center;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text);">Technology &amp; Software</h4>
+            <p style="font-size: 0.88rem; color: var(--muted); line-height: 1.5; margin: 0;">Built user-adoption telemetry, server resource monitoring reports, and API performance alerts dashboards.</p>
           </div>
         </div>
       </div>
@@ -3296,6 +3315,30 @@
           </div>
 
           <!-- Project 2 -->
+          <div class="project-card" data-category="tableau ai security javascript" data-project-id="workbook-sentinel">
+            <div class="project-card-header">
+              <span class="project-card-tag">Tableau + Security</span>
+              <span class="project-card-arrow">→</span>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-card-title">Workbook Sentinel</h3>
+              <div class="project-card-badges">
+                <span class="project-badge outcome">⚡ Local-first XML schema audit</span>
+              </div>
+              <p class="project-card-desc">A local-first, zero-data-leakage Tableau Dashboard Extension performing in-memory XML schema structure audits and calculated field lineage tracking.</p>
+              <div class="project-card-techs">
+                <span class="project-card-tech">JavaScript</span>
+                <span class="project-card-tech">DOMParser</span>
+                <span class="project-card-tech">fflate Zip</span>
+                <span class="project-card-tech">Extensions SDK</span>
+              </div>
+            </div>
+            <div class="project-card-footer">
+              <span>View Case Study</span>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
           <div class="project-card" data-category="tableau" data-project-id="calendar">
             <div class="project-card-header">
               <span class="project-card-tag">Tableau Extensions</span>
@@ -3488,29 +3531,7 @@
             </div>
           </div>
 
-          <!-- Project 10 -->
-          <div class="project-card" data-category="tableau ai security javascript" data-project-id="workbook-sentinel">
-            <div class="project-card-header">
-              <span class="project-card-tag">Tableau + Security</span>
-              <span class="project-card-arrow">→</span>
-            </div>
-            <div class="project-card-body">
-              <h3 class="project-card-title">Workbook Sentinel</h3>
-              <div class="project-card-badges">
-                <span class="project-badge outcome">⚡ Local-first XML schema audit</span>
-              </div>
-              <p class="project-card-desc">A local-first, zero-data-leakage Tableau Dashboard Extension performing in-memory XML schema structure audits and calculated field lineage tracking.</p>
-              <div class="project-card-techs">
-                <span class="project-card-tech">JavaScript</span>
-                <span class="project-card-tech">DOMParser</span>
-                <span class="project-card-tech">fflate Zip</span>
-                <span class="project-card-tech">Extensions SDK</span>
-              </div>
-            </div>
-            <div class="project-card-footer">
-              <span>View Case Study</span>
-            </div>
-          </div>
+
         </div>
         
         <div style="text-align: center; margin-top: 2rem;">
