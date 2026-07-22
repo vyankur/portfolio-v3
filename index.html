@@ -4432,15 +4432,23 @@
       </div>
     </section>
 
-    <!-- Resume Section -->
+    <!-- Resume Section (Collapsible) -->
     <section class="section" id="resume">
       <div class="shell">
-        <div class="section-head">
-          <div class="eyebrow">Resume</div>
-          <h2 class="section-title">Professional <em>career resume.</em></h2>
+        <div class="section-head" id="resumeToggleHeader" style="cursor: pointer; user-select: none; display: flex; justify-content: space-between; align-items: center; background: var(--card-bg); border: 1px solid var(--border); padding: 1.25rem 1.75rem; border-radius: 8px; transition: all 0.25s ease;">
+          <div>
+            <div class="eyebrow" style="margin-bottom: 0.25rem;">Resume</div>
+            <h2 class="section-title" style="margin: 0; font-size: 1.5rem; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+              Professional <em>career resume.</em>
+              <span id="resumeToggleBadge" style="font-size: 0.72rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 4px; background: var(--primary-light); color: var(--primary); text-transform: uppercase; letter-spacing: 0.05em;">Click to Expand ▾</span>
+            </h2>
+          </div>
+          <div id="resumeToggleChevron" style="font-size: 1.3rem; color: var(--primary); font-weight: bold; transition: transform 0.3s ease;">
+            ▼
+          </div>
         </div>
 
-        <div class="resume-container">
+        <div class="resume-container" id="resumeExpandableBody" style="display: none; margin-top: 1.5rem;">
           <div class="resume-tabs-row" style="display: flex; gap: 0.75rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem; margin-bottom: 1.5rem;">
             <button class="resume-tab-btn active" data-tab="visual" style="font-weight: 700; padding: 0.5rem 1.25rem; border-radius: 6px; cursor: pointer;">Visual Resume</button>
             <button class="resume-tab-btn" data-tab="ats" style="font-weight: 700; padding: 0.5rem 1.25rem; border-radius: 6px; cursor: pointer;">ATS Resume</button>
@@ -4632,7 +4640,7 @@ EDUCATION
             <ul class="contact-meta-list">
               <li class="contact-meta-item">
                 <span class="contact-meta-icon">📍</span>
-                <span>Gurugram, India (Open to relocation to UAE, Singapore, Hong Kong, UK, Germany)</span>
+                <span>Gurugram, India (Open to Global Relocation Worldwide 🌍)</span>
               </li>
               <li class="contact-meta-item">
                 <span class="contact-meta-icon">✉️</span>
@@ -5258,13 +5266,40 @@ EDUCATION
         document.body.style.overflow = '';
       });
     }
-    if (resumeViewerModal) {
-      resumeViewerModal.addEventListener('click', (e) => {
-        if (e.target === resumeViewerModal) {
-          resumeViewerModal.classList.remove('active');
-          document.body.style.overflow = '';
-        }
-      });
+    }
+
+    // Collapsible Resume Section Toggle Logic
+    const resumeToggleHeader = document.getElementById('resumeToggleHeader');
+    const resumeExpandableBody = document.getElementById('resumeExpandableBody');
+    const resumeToggleBadge = document.getElementById('resumeToggleBadge');
+    const resumeToggleChevron = document.getElementById('resumeToggleChevron');
+
+    function toggleResumeSection(forceExpand = false) {
+      if (!resumeExpandableBody) return;
+      const isExpanded = resumeExpandableBody.style.display === 'block';
+      if (isExpanded && !forceExpand) {
+        resumeExpandableBody.style.display = 'none';
+        if (resumeToggleBadge) resumeToggleBadge.textContent = 'Click to Expand ▾';
+        if (resumeToggleChevron) resumeToggleChevron.style.transform = 'rotate(0deg)';
+      } else {
+        resumeExpandableBody.style.display = 'block';
+        if (resumeToggleBadge) resumeToggleBadge.textContent = 'Click to Collapse ▴';
+        if (resumeToggleChevron) resumeToggleChevron.style.transform = 'rotate(180deg)';
+      }
+    }
+
+    if (resumeToggleHeader) {
+      resumeToggleHeader.addEventListener('click', () => toggleResumeSection());
+    }
+
+    // Auto-expand if navigated directly to #resume
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash === '#resume' || window.location.hash.startsWith('#/resume')) {
+        toggleResumeSection(true);
+      }
+    });
+    if (window.location.hash === '#resume' || window.location.hash.startsWith('#/resume')) {
+      toggleResumeSection(true);
     }
 
     // Detailed Project Case Studies Data (Storyteller Edition)
@@ -7087,7 +7122,7 @@ EDUCATION
       },
       
       ge: 'At GE Power (under TCS), Ankur automated defect reporting and CAS compliance dashboarding, saving 95% manual effort. He designed a Python fuzzy deduplication script to clean supplier databases and optimized lead-time dashboards, lowering latency by 35%.',
-      relocate: 'Ankur is currently based in Gurugram, India, and is open to global relocation opportunities, specifically in Singapore, Hong Kong, UAE, UK, and Germany.',
+      relocate: 'Ankur is currently based in Gurugram, India, and is fully open to global relocation opportunities worldwide 🌍.',
       summary: 'Ankur Varshney has 11+ years of experience delivering BI architectures, cloud data pipelines, and analytics platforms. He has worked for Sun Life Financial, HCL Technologies, and Tata Consultancy Services, serving VPs and CXOs across finance and insurance.',
       education: 'Ankur holds a B.Tech. in Electronics & Communications from Krishna Institute of Engineering and Technology (KIET), Ghaziabad (UPTU, Noida), graduated in 2015.',
       hcl: 'At HCL Technologies (2021-2023) in Pune, Ankur served as Tableau & Data Viz Lead. He led a team of 2 developers to design a 5-year financial planning and budgeting dashboard suite for Deutsche Bank (CXO-level decision makers), integrated SAP HANA, and managed PySpark/Databricks pipelines.',
